@@ -3,8 +3,8 @@
 /* Variables CSS que se actualizarán con JS */
 :root {
     --primary: #d4af37;
-    --secondary: #000000;
-    --text: #ffffff;
+    --secondary: #ffffff;
+    --text: #000000;
     --card-bg: #1a1a1a;
 }
 
