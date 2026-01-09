@@ -2,13 +2,12 @@
     --primary: #d4af37;
     --secondary: #000000;
     --text: #ffffff;
-    /* Cambio: El fondo de las tarjetas ahora es semitransparente */
     --card-bg: rgba(0, 0, 0, 0.6); 
 }
 
 body {
-    /* Cambio: Overlay mucho más suave para que se vea tu imagen */
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/fondo_web.jpg');
+    /* FONDO PURO: Sin capa gris encima */
+    background: url('assets/fondo_web.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -22,7 +21,11 @@ body {
 .border-primary { border-color: var(--primary) !important; }
 .hidden { display: none; }
 
-/* TÍTULOS */
+/* SOMBRAS DE TEXTO (Vitales ahora que no hay fondo gris) */
+h1, h2, h3, p, span, li, i {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
 .section-title { 
     text-transform: uppercase; 
     letter-spacing: 2px; 
@@ -33,28 +36,22 @@ body {
     display: inline-block;
     padding-bottom: 10px;
     margin-bottom: 40px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Sombra para leerse sobre foto */
 }
 
-/* --- HERO OVERLAY (Estilo Boda) --- */
-/* Este es el "cuadrito" detrás del entrenador */
+/* --- HERO BOX (Invisible, solo estructura) --- */
 .hero-box {
-    background-color: rgba(0, 0, 0, 0.5); /* Oscuro sutil */
-    border-radius: 20px;
-    padding: 40px;
-    backdrop-filter: blur(3px); /* Un ligero desenfoque elegante */
-    border: 1px solid rgba(212, 175, 55, 0.3); /* Borde dorado muy sutil */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background-color: transparent; /* Se quitó lo gris */
+    border: none;
+    padding: 20px;
 }
 
-/* Barra Superior */
+/* --- BARRA SUPERIOR TRANSPARENTE --- */
 #top-bar-trigger {
-    background: rgba(0, 0, 0, 0.8); /* Semitransparente */
+    background: transparent; /* Sin fondo */
     color: var(--primary);
-    border-bottom: 1px solid var(--primary);
+    border: none;
 }
 
-/* --- BOTÓN AUDIO LIMPIO --- */
 #audio-toggle {
     background: transparent !important;
     border: none !important;
@@ -62,19 +59,19 @@ body {
     font-size: 1.5rem;
     padding: 10px;
     transition: transform 0.3s ease;
-    text-shadow: 0 0 10px rgba(0,0,0,1); /* Sombra para que se vea en cualquier fondo */
+    filter: drop-shadow(0 0 3px #000);
 }
 #audio-toggle:hover {
     transform: scale(1.2);
     color: #fff !important;
 }
 
-/* --- EFECTO PUERTA --- */
+/* --- EFECTO PUERTA (FONDO BLANCO) --- */
 #welcome-screen {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     z-index: 9999; display: flex; flex-direction: column;
     justify-content: center; align-items: center;
-    background-color: #050505; /* Casi negro para la carga */
+    background-color: #ffffff; /* FONDO BLANCO AQUÍ */
     cursor: pointer; overflow: hidden;
 }
 .door-container { position: relative; width: 300px; height: 300px; display: flex; }
@@ -82,17 +79,18 @@ body {
     width: 50%; height: 100%; background-size: 200% 100%;
     background-repeat: no-repeat; transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s ease;
 }
-.left-door { background-position: left center; border-right: 1px solid var(--primary); }
-.right-door { background-position: right center; border-left: 1px solid var(--primary); }
+.left-door { background-position: left center; /* Sin borde para que se vea limpio en blanco */ }
+.right-door { background-position: right center; /* Sin borde */ }
+
 .door-open .left-door { transform: translateX(-150%) rotateY(-20deg); opacity: 0; }
 .door-open .right-door { transform: translateX(150%) rotateY(20deg); opacity: 0; }
 .door-open .click-instruction { opacity: 0; }
 .click-instruction {
-    margin-top: 3rem; color: var(--primary); font-weight: bold; letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    margin-top: 3rem; color: #000000; /* Texto negro para que se vea en fondo blanco */
+    font-weight: bold; letter-spacing: 2px;
 }
 
-/* --- FLIP CARDS (Ahora transparentes) --- */
+/* --- FLIP CARDS --- */
 .flip-card {
     background-color: transparent;
     width: 100%; height: 320px;
@@ -109,7 +107,6 @@ body {
     position: absolute; width: 100%; height: 100%;
     -webkit-backface-visibility: hidden; backface-visibility: hidden;
     border-radius: 20px;
-    /* Borde dorado */
     border: 2px solid var(--primary);
     display: flex; flex-direction: column;
     justify-content: center; align-items: center; padding: 25px;
@@ -117,16 +114,15 @@ body {
 }
 
 .flip-card-front { 
-    /* Fondo Glass (Vidrio oscuro) */
-    background-color: var(--card-bg); 
+    background-color: rgba(0, 0, 0, 0.6); /* Transparencia para leer */
     color: var(--text); 
-    backdrop-filter: blur(5px); /* Efecto borroso detrás */
+    backdrop-filter: blur(2px);
 }
-
 .flip-card-back { 
-    background-color: rgba(212, 175, 55, 0.9); /* Dorado semitransparente */
+    background-color: rgba(212, 175, 55, 0.95);
     color: #000; transform: rotateY(180deg); 
 }
+.flip-card-back * { text-shadow: none; } /* Quita sombra en el reverso para limpieza */
 
 .card-title-custom { font-size: 1.6rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
 .rotate-icon { margin-top: auto; font-size: 1.2rem; opacity: 0.8; }
@@ -139,7 +135,6 @@ body {
     box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
 }
 
-/* Formularios transparentes */
 .form-control::placeholder { color: rgba(255, 255, 255, 0.6); }
 .form-control {
     background-color: rgba(255, 255, 255, 0.1) !important;
@@ -149,7 +144,6 @@ body {
 .form-control:focus {
     background-color: rgba(255, 255, 255, 0.2) !important;
     border-color: var(--primary) !important;
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .ball-float {
