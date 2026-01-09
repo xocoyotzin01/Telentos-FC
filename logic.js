@@ -9,7 +9,7 @@ function applyConfig() {
     root.style.setProperty('--primary', CONFIG.colors.primary);
     root.style.setProperty('--secondary', CONFIG.colors.secondary);
     root.style.setProperty('--text', CONFIG.colors.text);
-    root.style.setProperty('--card-bg', CONFIG.colors.cardBg);
+    // Nota: card-bg se define ahora en CSS con transparencia
 
     document.getElementById('app-name-display').innerText = CONFIG.general.appName;
     if (CONFIG.general.welcomeAudio) {
@@ -42,23 +42,27 @@ function renderHero() {
     });
 
     hero.innerHTML = `
-        <div class="row align-items-center">
-            <div class="col-md-5 text-center mb-4 mb-md-0 animate__animated animate__fadeInLeft">
-                <div class="ratio ratio-1x1 mx-auto position-relative" style="max-width: 300px;">
-                    <img src="${CONFIG.general.coachPhoto}" class="rounded-circle img-fluid border-primary object-fit-cover" style="border: 5px solid var(--primary); padding: 5px; width: 100%; height: 100%;">
+        <div class="hero-box animate__animated animate__fadeIn">
+            <div class="row align-items-center">
+                <div class="col-md-5 text-center mb-4 mb-md-0 animate__animated animate__fadeInLeft">
+                    <div class="ratio ratio-1x1 mx-auto position-relative" style="max-width: 300px;">
+                        <img src="${CONFIG.general.coachPhoto}" class="rounded-circle img-fluid border-primary object-fit-cover shadow-lg" style="border: 5px solid var(--primary); padding: 5px; width: 100%; height: 100%;">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-7 text-white">
-                <h1 class="display-4 fw-bold text-uppercase animate__animated animate__fadeInDown" style="color: var(--primary)">${CONFIG.sections.hero.title}</h1>
-                <p class="lead fs-4 mb-4 animate__animated animate__fadeIn" style="animation-delay: 0.5s;">${CONFIG.sections.hero.subtitle}</p>
-                <ul class="list-unstyled fs-5 mb-4">${achievementsHtml}</ul>
-                <div class="d-flex gap-3 align-items-center animate__animated animate__fadeInUp" style="animation-delay: 1s;">
-                    <button class="btn btn-outline-light border-primary text-primary" onclick="openCoachModal()">
-                        <i class="fa-solid fa-user-tie me-2"></i>Conocer más del Entrenador
-                    </button>
-                    <div class="p-2 rounded bg-darker border border-secondary">
-                        <small class="text-muted d-block text-uppercase" style="font-size: 0.7rem;">Próximo Entreno</small>
-                        <div id="countdown-timer" class="fw-bold text-white">Calculando...</div>
+                <div class="col-md-7 text-white">
+                    <h1 class="display-4 fw-bold text-uppercase animate__animated animate__fadeInDown" style="color: var(--primary); text-shadow: 2px 2px 4px #000;">${CONFIG.sections.hero.title}</h1>
+                    <p class="lead fs-4 mb-4 animate__animated animate__fadeIn" style="animation-delay: 0.5s; text-shadow: 1px 1px 2px #000;">${CONFIG.sections.hero.subtitle}</p>
+                    <ul class="list-unstyled fs-5 mb-4" style="text-shadow: 1px 1px 2px #000;">${achievementsHtml}</ul>
+                    
+                    <div class="d-flex gap-3 align-items-center flex-wrap animate__animated animate__fadeInUp" style="animation-delay: 1s;">
+                        <button class="btn btn-outline-light border-primary text-primary" onclick="openCoachModal()">
+                            <i class="fa-solid fa-user-tie me-2"></i>Conocer más del Entrenador
+                        </button>
+                        
+                        <div class="p-2 rounded border border-secondary" style="background: rgba(0,0,0,0.6);">
+                            <small class="text-muted d-block text-uppercase" style="font-size: 0.7rem;">Próximo Entreno</small>
+                            <div id="countdown-timer" class="fw-bold text-white">Calculando...</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,9 +81,9 @@ function renderServices() {
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <i class="fa-solid ${card.icon} fa-4x mb-4 text-primary"></i>
-                            <h3 class="card-title-custom">${card.title}</h3>
-                            <p class="fst-italic text-muted mb-0">${card.shortDesc}</p>
+                            <i class="fa-solid ${card.icon} fa-4x mb-4 text-primary" style="text-shadow: 0 0 10px rgba(0,0,0,0.5);"></i>
+                            <h3 class="card-title-custom" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">${card.title}</h3>
+                            <p class="fst-italic text-white-50 mb-0">${card.shortDesc}</p>
                             <div class="rotate-icon text-primary mt-auto">
                                 <i class="fa-solid fa-rotate"></i>
                             </div>
@@ -103,14 +107,14 @@ function renderAbout() {
     document.getElementById('sec-about').innerHTML = `
         <div class="row justify-content-center g-5">
             <div class="col-md-5 animate__animated" data-ani="fadeInLeft">
-                <div class="p-4 border border-primary rounded h-100 bg-darker">
+                <div class="hero-box h-100 d-flex flex-column align-items-center justify-content-center">
                     <i class="fa-solid fa-bullseye fa-3x text-primary mb-3"></i>
                     <h3 class="text-primary text-uppercase fw-bold">Nuestra Misión</h3>
                     <p class="fs-5 mb-0">${CONFIG.sections.about.mission}</p>
                 </div>
             </div>
             <div class="col-md-5 animate__animated" data-ani="fadeInRight">
-                 <div class="p-4 border border-primary rounded h-100 bg-darker">
+                 <div class="hero-box h-100 d-flex flex-column align-items-center justify-content-center">
                     <i class="fa-solid fa-eye fa-3x text-primary mb-3"></i>
                     <h3 class="text-primary text-uppercase fw-bold">Nuestra Visión</h3>
                     <p class="fs-5 mb-0">${CONFIG.sections.about.vision}</p>
@@ -127,7 +131,7 @@ function renderGallery() {
         CONFIG.sections.gallery.images.forEach(imgName => {
             slides += `
                 <div class="swiper-slide">
-                    <img src="assets/${imgName}" class="img-fluid rounded border border-secondary" style="width:100%; height:300px; object-fit:cover;">
+                    <img src="assets/${imgName}" class="img-fluid rounded border border-secondary shadow" style="width:100%; height:300px; object-fit:cover;">
                 </div>`;
         });
     } else {
@@ -143,7 +147,7 @@ function renderVideos() {
      CONFIG.sections.videos.videoIds.forEach(id => {
          videosHtml += `
             <div class="col-md-4">
-                <div class="ratio ratio-16x9 border border-primary rounded overflow-hidden shadow">
+                <div class="ratio ratio-16x9 border border-primary rounded overflow-hidden shadow-lg">
                     <iframe src="https://www.youtube.com/embed/${id}" title="YouTube video" allowfullscreen></iframe>
                 </div>
             </div>`;
