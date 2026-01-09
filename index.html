@@ -16,58 +16,55 @@
         <span id="app-name-display">Cargando...</span>
     </div>
 
+    <button id="audio-toggle" class="btn btn-outline-warning rounded-circle" style="position: fixed; top: 10px; right: 10px; z-index: 10001; display: none;">
+        <i class="fa-solid fa-volume-high"></i>
+    </button>
+
     <div id="welcome-screen">
         <div class="door-container">
             <div class="door-half left-door" style="background-image: url('assets/logo_completo.png');"></div>
             <div class="door-half right-door" style="background-image: url('assets/logo_completo.png');"></div>
         </div>
-        <div class="click-instruction animate__animated animate__pulse animate__infinite">TOCA PARA ENTRAR A LA CANCHA</div>
+        <div class="click-instruction animate__animated animate__pulse animate__infinite">TOCA EL ESCUDO PARA ENTRAR</div>
     </div>
-     <audio id="welcome-audio" loop>
-        <source src="" type="audio/mpeg"> </audio>
-
+    
+    <audio id="welcome-audio" loop>
+        <source src="" type="audio/mpeg">
+    </audio>
 
     <div id="main-content" class="hidden">
-
-        <section id="sec-hero" class="container py-5 dynamic-section">
-            </section>
+        <section id="sec-hero" class="container py-5 dynamic-section"></section>
 
         <section id="sec-services" class="container py-5 dynamic-section">
             <h2 class="text-center section-title mb-5">Programas de Entrenamiento</h2>
-            <div class="row g-4" id="services-container">
-                </div>
+            <div class="row g-4" id="services-container"></div>
              <div class="row mt-5">
                 <div class="col-12">
                      <div class="ratio ratio-21x9 border border-primary rounded">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.663571170044!2d-99.0358333!3d19.3838889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fd2f0c3f0399%3A0x7f8c8a0b0c8a0b0c!2sC.%20L%C3%B3pez%20Mateos%20235%2C%20Reforma%2C%2057800%20Nezahualc%C3%B3yotl%2C%20M%C3%A9x.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.5!2d-99.0!3d19.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI0JzAwLjAiTiA5OcKwMDAnMDAuMCJX!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="sec-about" class="container-fluid py-5 bg-darker dynamic-section text-center">
-            </section>
+        <section id="sec-about" class="container-fluid py-5 bg-darker dynamic-section text-center"></section>
 
         <section id="sec-gallery" class="container py-5 dynamic-section">
             <h2 class="text-center section-title mb-4">En la Cancha</h2>
             <div class="swiper gallery-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Foto+Entrenamiento+1" class="img-fluid rounded"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Foto+Partido+2" class="img-fluid rounded"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Foto+Equipo+3" class="img-fluid rounded"></div>
-                </div>
+                <div class="swiper-wrapper" id="gallery-wrapper">
+                    </div>
                 <div class="swiper-pagination"></div>
             </div>
         </section>
 
         <section id="sec-videos" class="container py-5 dynamic-section">
             <h2 class="text-center section-title mb-4">Highlights</h2>
-             <div class="row g-4" id="videos-container">
-                </div>
+             <div class="row g-4" id="videos-container"></div>
         </section>
 
         <footer id="sec-contact" class="text-center py-4 bg-black dynamic-section">
-            <p class="mb-2">© 2024 Talentos FC</p>
+            <p class="mb-2">© 2026 Talentos FC</p>
             <a href="#" id="btn-sell-cards" class="btn btn-outline-warning btn-sm" target="_blank">
                 <i class="fa-solid fa-id-card me-2"></i>¿Quieres tu propia tarjeta digital?
             </a>
@@ -75,29 +72,28 @@
     </div>
 
     <div id="floating-ball" class="ball-float animate__animated animate__bounceInUp">
-        <i class="fa-regular fa-futbol fa-2x fa-spin" style="--fa-animation-duration: 3s;"></i>
+        <i class="fa-regular fa-futbol fa-2x fa-spin" style="--fa-animation-duration: 4s;"></i>
     </div>
 
-    <div class="modal fade" id="adminModal" tabindex="-1" data-bs-backdrop="static">
-        <div class="modal-dialog modal-sm modal-dialog-centered">
-            <div class="modal-content bg-dark text-white border-primary">
+    <div class="modal fade" id="coachModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content text-white border-primary blurred-modal-content">
                 <div class="modal-header border-0">
-                    <h5 class="modal-title text-primary">Admin Zone</h5>
+                    <h5 class="modal-title text-primary fw-bold">Perfil del Entrenador</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="login-panel">
-                        <input type="password" id="admin-pass" class="form-control mb-3 bg-secondary text-white border-0 text-center" placeholder="Contraseña...">
-                        <button onclick="checkAdmin()" class="btn btn-primary w-100 fw-bold">ACCEDER</button>
-                    </div>
-                    <div id="control-panel" class="d-none">
-                        <h6 class="text-muted mb-3">Visibilidad de Secciones</h6>
-                        <div id="toggles-container" class="d-grid gap-2">
-                            </div>
-                        <div class="alert alert-warning mt-3 p-1" style="font-size: 0.7rem;">
-                            <i class="fa-solid fa-triangle-exclamation"></i> Los cambios son temporales en GitHub Pages. Edita <code>config.js</code> para cambios permanentes.
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img id="modal-coach-photo" src="" class="img-fluid rounded-circle border border-primary mb-3" style="max-width: 150px;">
+                            <h4 id="modal-coach-name" class="text-primary"></h4>
                         </div>
+                        <div class="col-md-8" id="modal-coach-resume">
+                            </div>
                     </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -113,9 +109,23 @@
                 <div class="modal-body">
                     <p class="text-center fs-5">Hola Campeón, te estamos esperando.</p>
                     <form id="inscription-form">
-                        <div class="mb-3"><input type="text" id="reg-name" class="form-control bg-secondary text-white border-0" placeholder="Nombre Completo" required></div>
-                        <div class="mb-3"><input type="number" id="reg-age" class="form-control bg-secondary text-white border-0" placeholder="Edad" required></div>
-                         <button type="button" onclick="sendInscriptionWhatsapp()" class="btn btn-primary w-100 fw-bold py-2">
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Nombre Completo</label>
+                            <input type="text" id="reg-name" class="form-control bg-secondary text-white border-0" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Edad</label>
+                            <input type="number" id="reg-age" class="form-control bg-secondary text-white border-0" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Correo Electrónico</label>
+                            <input type="email" id="reg-email" class="form-control bg-secondary text-white border-0" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Teléfono</label>
+                            <input type="tel" id="reg-phone" class="form-control bg-secondary text-white border-0" required>
+                        </div>
+                         <button type="button" onclick="sendInscriptionWhatsapp()" class="btn btn-primary w-100 fw-bold py-2 mt-3">
                             <i class="fa-brands fa-whatsapp me-2"></i> ENVIAR SOLICITUD
                         </button>
                     </form>
@@ -123,12 +133,34 @@
             </div>
         </div>
     </div>
-
+    
+    <div class="modal fade" id="adminModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-primary">
+                <div class="modal-body">
+                    <div id="login-panel">
+                        <h6 class="text-center text-primary">Admin Zone</h6>
+                        <input type="password" id="admin-pass" class="form-control mb-3 bg-secondary text-white border-0 text-center" placeholder="Contraseña...">
+                        <button onclick="checkAdmin()" class="btn btn-primary w-100 btn-sm">ACCEDER</button>
+                    </div>
+                    <div id="control-panel" class="d-none">
+                        <h6 class="text-muted mb-2">Secciones</h6>
+                        <div id="toggles-container" class="d-grid gap-2"></div>
+                    </div>
+                </div>
+                <div class="modal-footer p-1 border-0 justify-content-center">
+                    <button type="button" class="btn btn-link text-muted btn-sm text-decoration-none" data-bs-dismiss="modal">Salir</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     
-    <script src="config.js"></script> <script src="logic.js"></script>  </body>
+    <script src="config.js"></script>
+    <script src="logic.js"></script>
+</body>
 </html>
