@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talentos FC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="top-bar-trigger" class="text-center p-2 fw-bold user-select-none" style="cursor: pointer; letter-spacing: 2px;">
+        <span id="app-name-display">Cargando...</span>
+    </div>
+
+    <div id="welcome-screen">
+        <div class="door-container">
+            <div class="door-half left-door" style="background-image: url('assets/logo_completo.png');"></div>
+            <div class="door-half right-door" style="background-image: url('assets/logo_completo.png');"></div>
+        </div>
+        <div class="click-instruction animate__animated animate__pulse animate__infinite">TOCA PARA ENTRAR A LA CANCHA</div>
+    </div>
+     <audio id="welcome-audio" loop>
+        <source src="" type="audio/mpeg"> </audio>
+
+
+    <div id="main-content" class="hidden">
+
+        <section id="sec-hero" class="container py-5 dynamic-section">
+            </section>
+
+        <section id="sec-services" class="container py-5 dynamic-section">
+            <h2 class="text-center section-title mb-5">Programas de Entrenamiento</h2>
+            <div class="row g-4" id="services-container">
+                </div>
+             <div class="row mt-5">
+                <div class="col-12">
+                     <div class="ratio ratio-21x9 border border-primary rounded">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.663571170044!2d-99.0358333!3d19.3838889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fd2f0c3f0399%3A0x7f8c8a0b0c8a0b0c!2sC.%20L%C3%B3pez%20Mateos%20235%2C%20Reforma%2C%2057800%20Nezahualc%C3%B3yotl%2C%20M%C3%A9x.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-about" class="container-fluid py-5 bg-darker dynamic-section text-center">
+            </section>
+
+        <section id="sec-gallery" class="container py-5 dynamic-section">
+            <h2 class="text-center section-title mb-4">En la Cancha</h2>
+            <div class="swiper gallery-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Foto+Entrenamiento+1" class="img-fluid rounded"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Foto+Partido+2" class="img-fluid rounded"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Foto+Equipo+3" class="img-fluid rounded"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <section id="sec-videos" class="container py-5 dynamic-section">
+            <h2 class="text-center section-title mb-4">Highlights</h2>
+             <div class="row g-4" id="videos-container">
+                </div>
+        </section>
+
+        <footer id="sec-contact" class="text-center py-4 bg-black dynamic-section">
+            <p class="mb-2">© 2024 Talentos FC</p>
+            <a href="#" id="btn-sell-cards" class="btn btn-outline-warning btn-sm" target="_blank">
+                <i class="fa-solid fa-id-card me-2"></i>¿Quieres tu propia tarjeta digital?
+            </a>
+        </footer>
+    </div>
+
+    <div id="floating-ball" class="ball-float animate__animated animate__bounceInUp">
+        <i class="fa-regular fa-futbol fa-2x fa-spin" style="--fa-animation-duration: 3s;"></i>
+    </div>
+
+    <div class="modal fade" id="adminModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-primary">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-primary">Admin Zone</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="login-panel">
+                        <input type="password" id="admin-pass" class="form-control mb-3 bg-secondary text-white border-0 text-center" placeholder="Contraseña...">
+                        <button onclick="checkAdmin()" class="btn btn-primary w-100 fw-bold">ACCEDER</button>
+                    </div>
+                    <div id="control-panel" class="d-none">
+                        <h6 class="text-muted mb-3">Visibilidad de Secciones</h6>
+                        <div id="toggles-container" class="d-grid gap-2">
+                            </div>
+                        <div class="alert alert-warning mt-3 p-1" style="font-size: 0.7rem;">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Los cambios son temporales en GitHub Pages. Edita <code>config.js</code> para cambios permanentes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="inscriptionModal" tabindex="-1">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white" style="border: 2px solid var(--primary);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-uppercase fw-bold" style="color: var(--primary)">¡Únete al Equipo!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center fs-5">Hola Campeón, te estamos esperando.</p>
+                    <form id="inscription-form">
+                        <div class="mb-3"><input type="text" id="reg-name" class="form-control bg-secondary text-white border-0" placeholder="Nombre Completo" required></div>
+                        <div class="mb-3"><input type="number" id="reg-age" class="form-control bg-secondary text-white border-0" placeholder="Edad" required></div>
+                         <button type="button" onclick="sendInscriptionWhatsapp()" class="btn btn-primary w-100 fw-bold py-2">
+                            <i class="fa-brands fa-whatsapp me-2"></i> ENVIAR SOLICITUD
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    
+    <script src="config.js"></script> <script src="logic.js"></script>  </body>
+</html>
