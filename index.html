@@ -35,12 +35,13 @@
     <div id="main-content" class="hidden">
         <section id="sec-hero" class="container py-5 dynamic-section"></section>
 
-        <section id="sec-services" class="container py-5 dynamic-section">
-            <h2 class="text-center section-title mb-5">Programas de Entrenamiento</h2>
-            <div class="row g-4" id="services-container"></div>
-             <div class="row mt-5">
+        <section id="sec-services" class="container py-5 dynamic-section text-center">
+            <h2 class="section-title">Programas de Entrenamiento</h2>
+            <div class="row g-4 justify-content-center" id="services-container"></div>
+            
+            <div class="row mt-5">
                 <div class="col-12">
-                     <div class="ratio ratio-21x9 border border-primary rounded">
+                     <div class="ratio ratio-21x9 border border-primary rounded shadow">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.5!2d-99.0!3d19.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI0JzAwLjAiTiA5OcKwMDAnMDAuMCJX!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
@@ -50,16 +51,15 @@
         <section id="sec-about" class="container-fluid py-5 bg-darker dynamic-section text-center"></section>
 
         <section id="sec-gallery" class="container py-5 dynamic-section">
-            <h2 class="text-center section-title mb-4">En la Cancha</h2>
+            <h2 class="section-title">En la Cancha</h2>
             <div class="swiper gallery-swiper">
-                <div class="swiper-wrapper" id="gallery-wrapper">
-                    </div>
+                <div class="swiper-wrapper" id="gallery-wrapper"></div>
                 <div class="swiper-pagination"></div>
             </div>
         </section>
 
         <section id="sec-videos" class="container py-5 dynamic-section">
-            <h2 class="text-center section-title mb-4">Highlights</h2>
+            <h2 class="section-title">Highlights</h2>
              <div class="row g-4" id="videos-container"></div>
         </section>
 
@@ -88,8 +88,7 @@
                             <img id="modal-coach-photo" src="" class="img-fluid rounded-circle border border-primary mb-3" style="max-width: 150px;">
                             <h4 id="modal-coach-name" class="text-primary"></h4>
                         </div>
-                        <div class="col-md-8" id="modal-coach-resume">
-                            </div>
+                        <div class="col-md-8" id="modal-coach-resume"></div>
                     </div>
                 </div>
                 <div class="modal-footer border-0">
@@ -101,31 +100,27 @@
 
     <div class="modal fade" id="inscriptionModal" tabindex="-1">
          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark text-white" style="border: 2px solid var(--primary);">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-uppercase fw-bold" style="color: var(--primary)">¡Únete al Equipo!</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            <div class="modal-content text-white blurred-modal-content">
+                <div class="modal-header border-0 justify-content-center">
+                    <h4 class="modal-title text-uppercase fw-bold text-primary">¡Únete al Equipo!</h4>
+                    <button type="button" class="btn-close btn-close-white position-absolute end-0 me-3" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <p class="text-center fs-5">Hola Campeón, te estamos esperando.</p>
+                <div class="modal-body px-4">
+                    <p class="text-center fs-5 mb-4">Hola Campeón, te estamos esperando.</p>
                     <form id="inscription-form">
                         <div class="mb-3">
-                            <label class="form-label text-muted small">Nombre Completo</label>
-                            <input type="text" id="reg-name" class="form-control bg-secondary text-white border-0" required>
+                            <input type="text" id="reg-name" class="form-control py-2" placeholder="Nombre Completo del Jugador" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label text-muted small">Edad</label>
-                            <input type="number" id="reg-age" class="form-control bg-secondary text-white border-0" required>
+                            <input type="number" id="reg-age" class="form-control py-2" placeholder="Edad (años)" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label text-muted small">Correo Electrónico</label>
-                            <input type="email" id="reg-email" class="form-control bg-secondary text-white border-0" required>
+                            <input type="email" id="reg-email" class="form-control py-2" placeholder="Correo Electrónico de Contacto" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label text-muted small">Teléfono</label>
-                            <input type="tel" id="reg-phone" class="form-control bg-secondary text-white border-0" required>
+                            <input type="tel" id="reg-phone" class="form-control py-2" placeholder="Teléfono / WhatsApp" required>
                         </div>
-                         <button type="button" onclick="sendInscriptionWhatsapp()" class="btn btn-primary w-100 fw-bold py-2 mt-3">
+                         <button type="button" onclick="sendInscriptionWhatsapp()" class="btn btn-primary w-100 fw-bold py-3 mt-2 text-black fs-5">
                             <i class="fa-brands fa-whatsapp me-2"></i> ENVIAR SOLICITUD
                         </button>
                     </form>
@@ -134,22 +129,19 @@
         </div>
     </div>
     
-    <div class="modal fade" id="adminModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal fade" id="adminModal" tabindex="-1">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content bg-dark text-white border-primary">
                 <div class="modal-body">
                     <div id="login-panel">
                         <h6 class="text-center text-primary">Admin Zone</h6>
-                        <input type="password" id="admin-pass" class="form-control mb-3 bg-secondary text-white border-0 text-center" placeholder="Contraseña...">
+                        <input type="password" id="admin-pass" class="form-control mb-3 text-center" placeholder="Contraseña...">
                         <button onclick="checkAdmin()" class="btn btn-primary w-100 btn-sm">ACCEDER</button>
                     </div>
                     <div id="control-panel" class="d-none">
                         <h6 class="text-muted mb-2">Secciones</h6>
                         <div id="toggles-container" class="d-grid gap-2"></div>
                     </div>
-                </div>
-                <div class="modal-footer p-1 border-0 justify-content-center">
-                    <button type="button" class="btn btn-link text-muted btn-sm text-decoration-none" data-bs-dismiss="modal">Salir</button>
                 </div>
             </div>
         </div>
