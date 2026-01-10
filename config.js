@@ -60,7 +60,7 @@ const CONFIG = {
               prefix: "foto",
               extension: "jpg",
               start: 1,
-              max: 500   // límite de seguridad (puede ser 1000)
+              max: 10   // límite de seguridad (puede ser 1000)
             }, 
         videos: {
             visible: true,
