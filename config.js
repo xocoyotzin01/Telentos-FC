@@ -55,10 +55,13 @@ const CONFIG = {
             vision: "Ser la academia líder en formación de atletas de alto nivel en México."
         },
         // GALERÍA: Solo pon los nombres de tus archivos aquí. Deben estar en la carpeta 'assets'
-        gallery: { 
-            visible: true,
-            images: ["foto1.jpg", "foto2.jpg", "foto3.jpg"] 
-        }, 
+            gallery: {
+              visible: true,
+              prefix: "foto",
+              extension: "jpg",
+              start: 1,
+              max: 500   // límite de seguridad (puede ser 1000)
+            }, 
         videos: {
             visible: true,
             videoIds: ["dQw4w9WgXcQ", "dQw4w9WgXcQ", "dQw4w9WgXcQ"]
