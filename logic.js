@@ -124,19 +124,32 @@ function renderAbout() {
 }
 
 function renderGallery() {
-    if(!CONFIG.sections.gallery.visible) return;
+    if (!CONFIG.sections.gallery.visible) return;
+
     const wrapper = document.getElementById('gallery-wrapper');
     let slides = '';
-    if(CONFIG.sections.gallery.images && CONFIG.sections.gallery.images.length > 0) {
-        CONFIG.sections.gallery.images.forEach(imgName => {
-            slides += `
-                <div class="swiper-slide">
-                    <img src="assets/images/${imgName}" class="img-fluid rounded border border-secondary shadow" style="width:100%; height:300px; object-fit:cover;">
-                </div>`;
-        });
-    } else {
-        slides = '<div class="text-center text-muted p-5">Agrega fotos en config.js</div>';
+
+    const {
+        prefix,
+        extension,
+        start,
+        max
+    } = CONFIG.sections.gallery;
+
+    for (let i = start; i <= max; i++) {
+        const imgPath = `assets/images/${prefix}${i}.${extension}`;
+
+        slides += `
+            <div class="swiper-slide">
+                <img 
+                  src="${imgPath}" 
+                  class="img-fluid rounded border border-secondary shadow"
+                  style="width:100%; height:300px; object-fit:cover;"
+                  onerror="this.parentElement.remove()"
+                >
+            </div>`;
     }
+
     wrapper.innerHTML = slides;
 }
 
