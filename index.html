@@ -13,17 +13,16 @@
 <body>
 
     <div id="top-bar-trigger">
-        <div class="nav-left">
-            <img src="assets/logo_completo.png" alt="Logo" class="nav-logo">
+        <div class="d-flex align-items-center">
+            <img src="assets/logo_completo.png" alt="Logo" class="nav-logo"> 
             <span id="app-name-display" class="nav-brand-text">Talentos FC</span>
         </div>
         
-        <div class="nav-slogan d-none d-md-block">
-            FORJANDO CAMPEONES
+        <div class="nav-slogan d-none d-md-block"> FORJANDO CAMPEONES
         </div>
     </div>
 
-    <button id="audio-toggle" style="position: fixed; top: 100px; right: 20px; z-index: 10001; display: none;">
+    <button id="audio-toggle" style="position: fixed; right: 15px; z-index: 10001; display: none;">
         <i class="fa-solid fa-volume-high"></i>
     </button>
 
@@ -40,7 +39,6 @@
     </audio>
 
     <div id="main-content" class="hidden">
-        
         <section id="sec-hero" class="container py-5 dynamic-section"></section>
 
         <section id="sec-services" class="container py-5 dynamic-section text-center">
@@ -71,8 +69,8 @@
         </section>
 
         <footer id="sec-contact" class="text-center py-4 bg-black dynamic-section">
-            <p class="mb-2 text-white">© 2026 Talentos FC</p>
-            <a href="#" id="btn-sell-cards" class="btn btn-outline-light btn-sm" target="_blank">
+            <p class="mb-2">© 2026 Talentos FC</p>
+            <a href="#" id="btn-sell-cards" class="btn btn-outline-warning btn-sm" target="_blank">
                 <i class="fa-solid fa-id-card me-2"></i>¿Quieres tu propia tarjeta digital?
             </a>
         </footer>
@@ -84,7 +82,7 @@
 
     <div class="modal fade" id="coachModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content blurred-modal-content">
+            <div class="modal-content text-white border-primary blurred-modal-content">
                 <div class="modal-header border-0">
                     <h5 class="modal-title text-primary fw-bold">Perfil del Entrenador</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
@@ -107,7 +105,7 @@
 
     <div class="modal fade" id="inscriptionModal" tabindex="-1">
          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content blurred-modal-content">
+            <div class="modal-content text-white blurred-modal-content">
                 <div class="modal-header border-0 justify-content-center">
                     <h4 class="modal-title text-uppercase fw-bold text-primary">¡Únete al Equipo!</h4>
                     <button type="button" class="btn-close btn-close-white position-absolute end-0 me-3" data-bs-dismiss="modal"></button>
