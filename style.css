@@ -162,3 +162,21 @@ body {
 }
 .ball-float:hover { transform: scale(1.1); }
 .swiper-pagination-bullet-active { background-color: var(--primary) !important; }
+
+/* --- Estilos para las flechas del carrusel --- */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--primary) !important; /* Color Dorado */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0,0,0,0.8); /* Sombra para verlas bien sobre fotos claras */
+    background-color: rgba(0,0,0,0.3); /* Fondo oscurito detrás de la flecha */
+    padding: 30px; /* Tamaño del área clickeable */
+    border-radius: 50%;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 1.5rem !important; /* Tamaño del ícono */
+}
+
+
