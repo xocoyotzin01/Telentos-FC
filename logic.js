@@ -9,7 +9,6 @@ function applyConfig() {
     root.style.setProperty('--primary', CONFIG.colors.primary);
     root.style.setProperty('--secondary', CONFIG.colors.secondary);
     root.style.setProperty('--text', CONFIG.colors.text);
-    // Nota: card-bg se define ahora en CSS con transparencia
 
     document.getElementById('app-name-display').innerText = CONFIG.general.appName;
     if (CONFIG.general.welcomeAudio) {
@@ -42,28 +41,25 @@ function renderHero() {
     });
 
     hero.innerHTML = `
-        <div class="hero-box animate__animated animate__fadeIn">
-            <div class="row align-items-center">
-                <div class="col-md-5 text-center mb-4 mb-md-0 animate__animated animate__fadeInLeft">
-                    <div class="ratio ratio-1x1 mx-auto position-relative" style="max-width: 300px;">
-                        <img src="${CONFIG.general.coachPhoto}" class="rounded-circle img-fluid border-primary object-fit-cover shadow-lg" style="border: 5px solid var(--primary); padding: 5px; width: 100%; height: 100%;">
-                    </div>
+        <div class="row align-items-center">
+            <div class="col-md-5 text-center mb-5 mb-md-0 animate__animated animate__fadeInLeft">
+                <div class="ratio ratio-1x1 mx-auto position-relative mb-4" style="max-width: 320px;">
+                    <img src="${CONFIG.general.coachPhoto}" class="rounded-circle img-fluid border-primary object-fit-cover shadow-lg" style="border: 5px solid var(--primary); padding: 5px; width: 100%; height: 100%;">
                 </div>
-                <div class="col-md-7 text-white">
-                    <h1 class="display-4 fw-bold text-uppercase animate__animated animate__fadeInDown" style="color: var(--primary); text-shadow: 2px 2px 4px #000;">${CONFIG.sections.hero.title}</h1>
-                    <p class="lead fs-4 mb-4 animate__animated animate__fadeIn" style="animation-delay: 0.5s; text-shadow: 1px 1px 2px #000;">${CONFIG.sections.hero.subtitle}</p>
-                    <ul class="list-unstyled fs-5 mb-4" style="text-shadow: 1px 1px 2px #000;">${achievementsHtml}</ul>
-                    
-                    <div class="d-flex gap-3 align-items-center flex-wrap animate__animated animate__fadeInUp" style="animation-delay: 1s;">
-                        <button class="btn btn-outline-light border-primary text-primary" onclick="openCoachModal()">
-                            <i class="fa-solid fa-user-tie me-2"></i>Conocer más del Entrenador
-                        </button>
-                        
-                        <div class="p-2 rounded border border-secondary" style="background: rgba(0,0,0,0.6);">
-                            <small class="text-muted d-block text-uppercase" style="font-size: 0.7rem;">Próximo Entreno</small>
-                            <div id="countdown-timer" class="fw-bold text-white">Calculando...</div>
-                        </div>
-                    </div>
+                
+                <button class="btn btn-outline-light px-4 py-2 fs-5 fw-bold" onclick="openCoachModal()" style="border-width: 2px;">
+                    <i class="fa-solid fa-user-tie me-2"></i>Conocer al Entrenador
+                </button>
+            </div>
+
+            <div class="col-md-7 text-white text-center text-md-start">
+                <h1 class="display-4 fw-bold text-uppercase animate__animated animate__fadeInDown" style="color: var(--primary); text-shadow: 2px 2px 4px #000;">${CONFIG.sections.hero.title}</h1>
+                <p class="lead fs-4 mb-4 animate__animated animate__fadeIn" style="animation-delay: 0.5s; text-shadow: 1px 1px 2px #000;">${CONFIG.sections.hero.subtitle}</p>
+                <ul class="list-unstyled fs-5 mb-5" style="text-shadow: 1px 1px 2px #000;">${achievementsHtml}</ul>
+
+                <div class="hero-countdown-box animate__animated animate__fadeInUp" style="animation-delay: 1s;">
+                    <small class="text-white text-uppercase d-block mb-1" style="letter-spacing: 2px;">Próximo Entrenamiento En:</small>
+                    <div id="countdown-timer">Calculando...</div>
                 </div>
             </div>
         </div>
@@ -81,8 +77,8 @@ function renderServices() {
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <i class="fa-solid ${card.icon} fa-4x mb-4 text-primary" style="text-shadow: 0 0 10px rgba(0,0,0,0.5);"></i>
-                            <h3 class="card-title-custom" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">${card.title}</h3>
+                            <i class="fa-solid ${card.icon} fa-4x mb-4 text-primary"></i>
+                            <h3 class="fw-bold text-uppercase mb-2" style="color: var(--primary); font-size: 1.5rem;">${card.title}</h3>
                             <p class="fst-italic text-white-50 mb-0">${card.shortDesc}</p>
                             <div class="rotate-icon text-primary mt-auto">
                                 <i class="fa-solid fa-rotate"></i>
@@ -107,17 +103,17 @@ function renderAbout() {
     document.getElementById('sec-about').innerHTML = `
         <div class="row justify-content-center g-5">
             <div class="col-md-5 animate__animated" data-ani="fadeInLeft">
-                <div class="hero-box h-100 d-flex flex-column align-items-center justify-content-center">
-                    <i class="fa-solid fa-bullseye fa-3x text-primary mb-3"></i>
-                    <h3 class="text-primary text-uppercase fw-bold">Nuestra Misión</h3>
-                    <p class="fs-5 mb-0">${CONFIG.sections.about.mission}</p>
+                <div class="p-4 h-100 d-flex flex-column align-items-center justify-content-center">
+                    <i class="fa-solid fa-bullseye fa-4x text-primary mb-3" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);"></i>
+                    <h3 class="text-primary text-uppercase fw-bold" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Nuestra Misión</h3>
+                    <p class="fs-5 mb-0 text-white" style="text-shadow: 1px 1px 2px #000;">${CONFIG.sections.about.mission}</p>
                 </div>
             </div>
             <div class="col-md-5 animate__animated" data-ani="fadeInRight">
-                 <div class="hero-box h-100 d-flex flex-column align-items-center justify-content-center">
-                    <i class="fa-solid fa-eye fa-3x text-primary mb-3"></i>
-                    <h3 class="text-primary text-uppercase fw-bold">Nuestra Visión</h3>
-                    <p class="fs-5 mb-0">${CONFIG.sections.about.vision}</p>
+                 <div class="p-4 h-100 d-flex flex-column align-items-center justify-content-center">
+                    <i class="fa-solid fa-eye fa-4x text-primary mb-3" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);"></i>
+                    <h3 class="text-primary text-uppercase fw-bold" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Nuestra Visión</h3>
+                    <p class="fs-5 mb-0 text-white" style="text-shadow: 1px 1px 2px #000;">${CONFIG.sections.about.vision}</p>
                 </div>
             </div>
         </div>`;
