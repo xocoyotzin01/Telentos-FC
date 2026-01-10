@@ -131,7 +131,7 @@ function renderGallery() {
         CONFIG.sections.gallery.images.forEach(imgName => {
             slides += `
                 <div class="swiper-slide">
-                    <img src="assets/${imgName}" class="img-fluid rounded border border-secondary shadow" style="width:100%; height:300px; object-fit:cover;">
+                    <img src="assets/images/${imgName}" class="img-fluid rounded border border-secondary shadow" style="width:100%; height:300px; object-fit:cover;">
                 </div>`;
         });
     } else {
