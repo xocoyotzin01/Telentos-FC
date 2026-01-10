@@ -2,164 +2,135 @@
     --primary: #d4af37;
     --secondary: #000000;
     --text: #ffffff;
-    --card-bg: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente para tarjetas */
+    --card-bg: rgba(0, 0, 0, 0.6); 
 }
 
-/* --- FONDO GENERAL --- */
 body {
-    background: url('assets/fondo_web.jpg') no-repeat center center fixed;
+    background: url('assets/fondo_web.jpg');
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--text);
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
-    padding-top: 90px; /* Espacio para la barra fija */
+    padding-top: 80px; /* Espacio para que la barra fija no tape el contenido */
 }
-
-/* Sobrescribir colores de Bootstrap para eliminar el AZUL */
-.text-primary { color: var(--primary) !important; }
-.bg-primary { background-color: var(--primary) !important; }
-.border-primary { border-color: var(--primary) !important; }
-.btn-outline-light { color: var(--primary) !important; border-color: var(--primary) !important; }
-.btn-outline-light:hover { background-color: var(--primary) !important; color: #000 !important; }
 
 /* --- BARRA SUPERIOR BLANCA --- */
 #top-bar-trigger {
-    background-color: #ffffff !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    position: fixed;
+    background-color: #ffffff !important; /* FONDO BLANCO */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para resaltar */
+    position: fixed; /* Fija arriba */
     top: 0; left: 0; width: 100%;
-    z-index: 10000;
-    padding: 10px 30px;
+    z-index: 10000; /* Por encima de todo */
+    padding: 10px 20px;
     display: flex;
-    justify-content: space-between; /* Separa los elementos a los extremos */
+    justify-content: space-between; /* Elementos a los extremos */
     align-items: center;
 }
 
-.nav-left { display: flex; align-items: center; gap: 15px; }
-.nav-logo { height: 60px; width: auto; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); }
-
-/* Texto Talentos FC (Negro para verse en blanco) */
+/* Texto de la barra (ahora oscuro o dorado para verse en blanco) */
 .nav-brand-text {
     color: #000;
     font-weight: 900;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     letter-spacing: 1px;
-    text-transform: uppercase;
     text-shadow: none;
+    margin-left: 10px;
 }
 
-/* Slogan Derecha (Dorado) */
 .nav-slogan {
     color: var(--primary);
-    font-weight: 800;
-    font-size: 1.4rem;
+    font-weight: bold;
+    font-size: 1.2rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-shadow: none;
     text-align: right;
 }
 
-/* --- HERO SECTION --- */
-.hero-countdown-box {
-    background: rgba(0, 0, 0, 0.6);
-    border: 2px solid var(--primary);
-    border-radius: 10px;
-    padding: 15px 25px;
-    display: inline-block;
-    margin-top: 20px;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+/* Logo más grande */
+.nav-logo {
+    height: 70px; /* AUMENTADO */
+    width: auto;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
 }
 
-#countdown-timer {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 10px var(--primary);
+/* Ajuste del botón de audio para que no estorbe la barra */
+#audio-toggle {
+    top: 90px !important; /* Bajamos el botón de audio */
+    background: transparent !important;
+    border: none !important;
+    color: var(--primary) !important;
+    font-size: 1.5rem;
+    padding: 10px;
 }
 
-/* --- FLIP CARDS (ARREGLADAS) --- */
-.flip-card {
-    background-color: transparent;
-    width: 100%;
-    height: 350px;
-    perspective: 1000px;
-    cursor: pointer;
-}
+/* --- RESTO DE ESTILOS (Mantenidos) --- */
+.text-primary { color: var(--primary) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.hidden { display: none; }
 
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
+h1, h2, h3, p, span, li, i { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); }
+/* Excepción para la barra blanca */
+#top-bar-trigger * { text-shadow: none; }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-    border-radius: 20px;
-    border: 2px solid var(--primary);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-}
-
-/* Frente Oscuro (Glass) */
-.flip-card-front {
-    background-color: var(--card-bg); /* Oscuro transparente */
-    color: #fff;
-    backdrop-filter: blur(5px);
-}
-
-/* Reverso Dorado */
-.flip-card-back {
-    background-color: var(--primary);
-    color: #000;
-    transform: rotateY(180deg);
-}
-
-/* Asegurar que los textos se vean */
-.flip-card-front h3, .flip-card-front p, .flip-card-front i {
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    color: #fff; /* Texto blanco por defecto en frente */
-}
-.flip-card-front i.text-primary { color: var(--primary) !important; } /* Icono dorado */
-.flip-card-front h3 { color: var(--primary); } /* Título dorado */
-
-/* Títulos */
 .section-title { 
     text-transform: uppercase; letter-spacing: 2px; color: var(--primary);
-    font-weight: 800; font-size: 2.2rem; border-bottom: 3px solid var(--primary); 
+    font-weight: 800; font-size: 2rem; border-bottom: 3px solid var(--primary); 
     display: inline-block; padding-bottom: 10px; margin-bottom: 40px;
-    text-shadow: 2px 2px 4px #000;
 }
 
-/* --- OTROS --- */
-.hidden { display: none; }
-#audio-toggle { background: transparent !important; border: none !important; color: var(--primary) !important; font-size: 1.5rem; padding: 10px; }
-.ball-float { position: fixed; bottom: 30px; right: 30px; color: #000; background: var(--primary); border-radius: 50%; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); z-index: 1000; cursor: pointer; transition: transform 0.3s; }
-.ball-float:hover { transform: scale(1.1); }
+/* CONTADOR GRANDE */
+.big-countdown {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 0 10px var(--primary);
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+    display: inline-block;
+    margin-top: 10px;
+}
 
-/* Puerta */
-#welcome-screen { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #ffffff !important; cursor: pointer; overflow: hidden; }
-.door-container { position: relative; width: 300px; height: 300px; display: flex; }
-.door-half { width: 50%; height: 100%; background-size: 200% 100%; background-repeat: no-repeat; transition: transform 1.5s ease; }
-.left-door { background-position: left center; } .right-door { background-position: right center; }
+/* Efecto Puerta (Fondo Blanco) */
+#welcome-screen {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 99999; /* Mayor que la barra */
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background-color: #ffffff !important; 
+    cursor: pointer; overflow: hidden;
+}
+.door-container { position: relative; width: 300px; height: 300px; display: flex; box-shadow: none; }
+.door-half {
+    width: 50%; height: 100%; background-size: 200% 100%;
+    background-repeat: no-repeat; transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s ease;
+}
+.left-door { background-position: left center; }
+.right-door { background-position: right center; }
 .door-open .left-door { transform: translateX(-150%) rotateY(-20deg); opacity: 0; }
 .door-open .right-door { transform: translateX(150%) rotateY(20deg); opacity: 0; }
-.click-instruction { margin-top: 3rem; color: #000; font-weight: bold; letter-spacing: 2px; }
+.click-instruction { margin-top: 3rem; color: #000000; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; text-shadow: none; }
 
-/* Modales */
-.blurred-modal-content { background-color: rgba(0, 0, 0, 0.9) !important; backdrop-filter: blur(10px); border: 1px solid var(--primary); color: #fff; }
+/* Flip Cards */
+.flip-card { background-color: transparent; width: 100%; height: 320px; perspective: 1000px; cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+    position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    border-radius: 20px; border: 2px solid var(--primary); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+.flip-card-front { background-color: rgba(0, 0, 0, 0.6); color: var(--text); backdrop-filter: blur(2px); }
+.flip-card-back { background-color: rgba(212, 175, 55, 0.95); color: #000; transform: rotateY(180deg); }
+.flip-card-back * { text-shadow: none; }
+.card-title-custom { font-size: 1.6rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+.rotate-icon { margin-top: auto; font-size: 1.2rem; opacity: 0.8; }
+
+/* Modales y Forms */
+.blurred-modal-content { background-color: rgba(0, 0, 0, 0.85) !important; backdrop-filter: blur(10px); border: 1px solid var(--primary); box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+.form-control::placeholder { color: rgba(255, 255, 255, 0.6); }
 .form-control { background-color: rgba(255, 255, 255, 0.1) !important; color: white !important; border: 1px solid rgba(255,255,255,0.2) !important; }
+.ball-float { position: fixed; bottom: 30px; right: 30px; color: var(--secondary); background: var(--primary); border-radius: 50%; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); z-index: 1000; cursor: pointer; transition: transform 0.3s; }
+.swiper-pagination-bullet-active { background-color: var(--primary) !important; }
