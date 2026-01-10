@@ -82,8 +82,8 @@ body {
     width: 50%; height: 100%; background-size: 200% 100%;
     background-repeat: no-repeat; transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s ease;
 }
-.left-door { background-position: left center; border-right: 1px solid var(--primary); }
-.right-door { background-position: right center; border-left: 1px solid var(--primary); }
+.left-door { background-position: left center;}
+.right-door { background-position: right center;}
 .door-open .left-door { transform: translateX(-150%) rotateY(-20deg); opacity: 0; }
 .door-open .right-door { transform: translateX(150%) rotateY(20deg); opacity: 0; }
 .door-open .click-instruction { opacity: 0; }
