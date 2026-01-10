@@ -292,14 +292,25 @@ function toggleSection(key) {
 
 function initPlugins() {
     new Swiper('.gallery-swiper', {
-        slidesPerView: 1,
+        slidesPerView: 1,      // 1 foto en celular
         spaceBetween: 20,
-        loop: true,
-        autoplay: { delay: 3000 },
-        pagination: { el: '.swiper-pagination', clickable: true },
+        loop: true,            // Infinito
+        autoplay: { 
+            delay: 3000,
+            disableOnInteraction: false // Sigue rodando aunque lo toquen
+        },
+        pagination: { 
+            el: '.swiper-pagination', 
+            clickable: true 
+        },
+        // AGREGAMOS ESTO PARA ACTIVAR LAS FLECHAS:
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
         breakpoints: {
-            768: { slidesPerView: 2 },
-            992: { slidesPerView: 3 }
+            768: { slidesPerView: 2 }, // 2 fotos en tablet
+            992: { slidesPerView: 3 }  // 3 fotos en PC
         }
     });
 }
