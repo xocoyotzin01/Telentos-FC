@@ -8,7 +8,7 @@
 
 body {
     /* Cambio: Overlay mucho más suave para que se vea tu imagen */
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/fondo_web.jpg');
+    background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('assets/fondo_web.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
